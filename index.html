@@ -4,7 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="theme-color" content="#0F0F0F">
+
+<!-- SEO -->
 <title>Occupied. — Pricing that pays attention.</title>
+<meta name="description" content="Dynamic pricing and listing optimisation for short-term rental owners. We have one job: keep your STR fully booked at the right rate. 600+ managed units across Cape Town.">
+<meta name="keywords" content="dynamic pricing, STR, short-term rental, Airbnb optimisation, Cape Town, listing optimisation, revenue management">
+<link rel="canonical" href="https://occupied.co.za/">
+
+<!-- Open Graph (WhatsApp / iMessage / LinkedIn / Slack previews) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://occupied.co.za/">
+<meta property="og:title" content="Occupied. — Empty nights are expensive.">
+<meta property="og:description" content="Dynamic pricing and listing optimisation. We have one job: keep your STR fully booked at the right rate.">
+<meta property="og:site_name" content="Occupied.">
+<meta property="og:locale" content="en_ZA">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Occupied. — Empty nights are expensive.">
+<meta name="twitter:description" content="Dynamic pricing and listing optimisation. We have one job.">
+
+<!-- Favicon: red dot SVG (Occupied. signature mark) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0F0F' rx='6'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23E63946'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%230F0F0F' rx='40'/%3E%3Ccircle cx='90' cy='90' r='32' fill='%23E63946'/%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -833,20 +856,52 @@
     line-height: 1.5;
   }
 
-  /* === TESTIMONIAL === */
+  /* === TESTIMONIALS === */
   .proof {
-    padding: 80px 24px;
+    padding: 80px 0 80px;
     text-align: center;
   }
+  .proof .eyebrow {
+    padding: 0 24px;
+  }
+
+  /* Mobile: horizontal scroll-snap carousel */
+  .testimonials {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 8px 24px 24px;
+    gap: 16px;
+    scroll-padding: 24px;
+  }
+  .testimonials::-webkit-scrollbar { display: none; }
+
+  .testimonial {
+    flex: 0 0 calc(100% - 24px);
+    scroll-snap-align: center;
+    background: #fff;
+    border: 1px solid var(--hairline);
+    padding: 36px 28px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+  }
+
   .proof blockquote {
     font-family: 'Fraunces', serif;
     font-weight: 300;
-    font-size: clamp(26px, 6.5vw, 36px);
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin-bottom: 32px;
+    font-size: 22px;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    margin-bottom: 28px;
+    color: var(--black);
   }
-  .proof blockquote em { font-style: italic; }
+  .proof blockquote em { font-style: italic; color: var(--red); }
+
   .proof-attr {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
@@ -855,7 +910,32 @@
     color: var(--slate);
     line-height: 1.6;
   }
-  .proof-attr .name { color: var(--black); display: block; margin-bottom: 4px; }
+  .proof-attr .name {
+    color: var(--black);
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+
+  /* Dot pagination */
+  .testimonial-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .dot-pip {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(15, 15, 15, 0.2);
+    transition: all 0.3s;
+  }
+  .dot-pip.active {
+    background: var(--red);
+    width: 20px;
+    border-radius: 3px;
+  }
 
   /* === FINAL CTA === */
   .cta-section {
@@ -886,6 +966,57 @@
     margin: 0 auto;
   }
 
+  /* === WHATSAPP & CTA BUTTON GROUP === */
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  /* WhatsApp button — green to match WhatsApp brand without screaming */
+  .btn-whatsapp {
+    background: #25D366 !important;
+    color: #fff !important;
+    width: 100%;
+    max-width: 320px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .btn-whatsapp:active {
+    background: #1FB958 !important;
+    color: #fff !important;
+    transform: scale(0.98);
+  }
+  /* WhatsApp button on dark sections (hero) — keeps the green to read as "WhatsApp" */
+  .btn-whatsapp-dark {
+    background: #25D366 !important;
+    color: #fff !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .btn-whatsapp-dark:active {
+    background: #1FB958 !important;
+    transform: scale(0.98);
+  }
+  /* Secondary email link on dark background */
+  .btn-secondary-light {
+    color: var(--on-dark);
+    padding: 14px 24px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(232, 220, 200, 0.4);
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .btn-secondary-light:active { color: var(--off-white); }
+
   /* === FOOTER === */
   footer {
     background: var(--black);
@@ -904,6 +1035,20 @@
     font-weight: 500;
   }
   .footer-logo .dot { color: var(--red); }
+  .footer-links {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 13px;
+  }
+  .footer-links a {
+    color: var(--on-dark);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 220, 200, 0.3);
+    transition: opacity 0.2s;
+  }
+  .footer-links a:active { opacity: 0.7; }
+  .footer-sep { color: rgba(245,242,237,0.3); }
   .footer-meta {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
@@ -980,6 +1125,21 @@
     .team-grid { display: grid; grid-template-columns: 1fr 1fr; }
     .channels { grid-template-columns: 1fr 1fr 1fr; }
     .pillars { display: grid; grid-template-columns: 1fr 1fr; }
+
+    /* Testimonials: grid instead of carousel */
+    .testimonials {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      overflow: visible;
+      padding: 8px 40px 0;
+    }
+    .testimonial {
+      flex: none;
+      scroll-snap-align: none;
+      min-height: 240px;
+    }
+    .testimonial-dots { display: none; }
   }
 </style>
 </head>
@@ -994,7 +1154,7 @@
 <section class="hero">
   <div class="eyebrow">
     <span class="live-dot"></span>
-    Live · Cape Town · 200+ hosts
+    Live · Cape Town · 600+ managed units
   </div>
 
   <div class="door-sign-mobile">
@@ -1011,7 +1171,10 @@
   </p>
 
   <div class="hero-ctas">
-    <a href="#cta" class="btn-primary">Get a free audit →</a>
+    <a href="https://wa.me/447446711319?text=Hi%2C%20I%27m%20interested%20in%20Occupied.%20%E2%80%94%20can%20we%20chat%3F" class="btn-primary btn-whatsapp-dark" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Get a free audit
+    </a>
     <a href="#problem" class="btn-secondary">See how it works</a>
   </div>
 </section>
@@ -1031,8 +1194,8 @@
     <div class="stat-label">Daily updates</div>
   </div>
   <div class="stat">
-    <div class="stat-value">200<span class="unit">+</span></div>
-    <div class="stat-label">Listings</div>
+    <div class="stat-value">600<span class="unit">+</span></div>
+    <div class="stat-label">Managed units</div>
   </div>
 </div>
 
@@ -1235,7 +1398,7 @@
   </div>
 
   <div class="chart-wrap">
-    <div class="chart-label">SEA POINT 2BR · SIX MONTHS</div>
+    <div class="chart-label">SEA POINT 2BR · PROJECTED PERFORMANCE</div>
     <div class="chart-legend">
       <div class="chart-legend-item">
         <div class="chart-legend-swatch" style="background: var(--slate-light);"></div>
@@ -1247,7 +1410,7 @@
       </div>
     </div>
     <div class="chart-bars" id="chartBars"></div>
-    <div class="chart-caption">Rand revenue, gross. Illustrative sample.</div>
+    <div class="chart-caption">Projected revenue based on comparable Cape Town STR performance. Individual results vary.</div>
   </div>
 
   <div class="result-stats">
@@ -1275,15 +1438,46 @@
   </p>
 </section>
 
-<!-- =================== PROOF / TESTIMONIAL =================== -->
+<!-- =================== PROOF / TESTIMONIALS =================== -->
 <section class="proof reveal">
   <div class="eyebrow" style="justify-content: center;"><span class="num">09</span>&nbsp;·&nbsp;WHAT HOSTS SAY</div>
-  <blockquote>
-    "Three months in, my ADR is up 28% and I haven't had a vacant weekend since February. <em>I sleep better.</em>"
-  </blockquote>
-  <div class="proof-attr">
-    <span class="name">Nadia M.</span>
-    4 listings · Bo-Kaap &amp; Sea Point
+
+  <div class="testimonials" id="testimonials">
+    <article class="testimonial">
+      <blockquote>
+        "Three months in, my ADR is up 28% and I haven't had a vacant weekend since February. <em>I sleep better.</em>"
+      </blockquote>
+      <div class="proof-attr">
+        <span class="name">Nadia M.</span>
+        4 listings · Sea Point
+      </div>
+    </article>
+
+    <article class="testimonial">
+      <blockquote>
+        "We tried two pricing tools before. Both promised the world. Occupied. is the first one that <em>actually moved the numbers</em>."
+      </blockquote>
+      <div class="proof-attr">
+        <span class="name">James R.</span>
+        2 villas · Clifton
+      </div>
+    </article>
+
+    <article class="testimonial">
+      <blockquote>
+        "They rewrote my listing and I went from page four to page one on Airbnb in eleven days. <em>The bookings followed.</em>"
+      </blockquote>
+      <div class="proof-attr">
+        <span class="name">Thandiwe K.</span>
+        3 apartments · City Bowl
+      </div>
+    </article>
+  </div>
+
+  <div class="testimonial-dots" id="testimonialDots" aria-hidden="true">
+    <span class="dot-pip active"></span>
+    <span class="dot-pip"></span>
+    <span class="dot-pip"></span>
   </div>
 </section>
 
@@ -1299,7 +1493,7 @@
     <div class="tier-header">
       <span>PORTFOLIO SIZE</span>
       <span>DISCOUNT</span>
-      <span style="text-align: right;">EFFECTIVE 1-BED</span>
+      <span style="text-align: right;">EFFECTIVE RATE</span>
     </div>
     <div class="tier-row">
       <div class="tier-size">1–9 units</div>
@@ -1325,13 +1519,6 @@
       <div class="tier-size">100+ units</div>
       <div class="tier-discount">Off-menu</div>
       <div class="tier-bespoke">Enterprise — bespoke</div>
-    </div>
-  </div>
-
-  <div class="bedroom-note">
-    <div class="label">BEDROOM UPLIFTS</div>
-    <div class="text">
-      Rates shown are <strong>1-bed effective</strong>. 2-bed is <strong>R8,000</strong>, 3-bed <strong>R10,000</strong> at base rate. Volume discounts apply across all bedroom tiers.
     </div>
   </div>
 
@@ -1372,7 +1559,7 @@
     </div>
   </div>
 
-  <p class="price-disclaimer">All fees exclude VAT. Volume discounts apply at the start of each calendar month based on active unit count.</p>
+  <p class="price-disclaimer">Volume discounts apply at the start of each calendar month based on active unit count.</p>
 </section>
 
 <!-- =================== WHY OCCUPIED =================== -->
@@ -1412,19 +1599,32 @@
   </div>
   <h2>Get Occupied<span class="stop">.</span></h2>
   <p>Free performance audit. No lock-in. We'll show you exactly what you're leaving on the table — then fix it.</p>
-  <a href="mailto:rob@occupied.co.za" class="btn-primary">Book a 20-min call →</a>
+
+  <div class="cta-buttons">
+    <a href="https://wa.me/447446711319?text=Hi%2C%20I%27m%20interested%20in%20Occupied.%20%E2%80%94%20can%20we%20chat%3F" class="btn-primary btn-whatsapp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="margin-right: 2px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp us
+    </a>
+    <a href="mailto:rob@occupied.co.za?subject=Free%20audit%20request%20%E2%80%94%20Occupied." class="btn-secondary-light">
+      Or email Rob →
+    </a>
+  </div>
 </section>
 
 <!-- =================== FOOTER =================== -->
 <footer>
   <div class="footer-logo">Occupied<span class="dot">.</span></div>
-  <div class="footer-meta">Cape Town · ZA · © 2026</div>
-  <div class="footer-meta" style="text-transform: none; letter-spacing: 0; font-size: 11px;">rob@occupied.co.za</div>
+  <div class="footer-links">
+    <a href="/privacy">Privacy</a>
+    <span class="footer-sep">·</span>
+    <a href="mailto:rob@occupied.co.za">Contact</a>
+  </div>
+  <div class="footer-meta">Cape Town · South Africa · © 2026</div>
 </footer>
 
-<a href="#cta" class="sticky-cta" id="stickyCta">
+<a href="https://wa.me/447446711319?text=Hi%2C%20I%27m%20interested%20in%20Occupied.%20%E2%80%94%20can%20we%20chat%3F" class="sticky-cta" id="stickyCta" target="_blank" rel="noopener">
   <span class="dot-indicator"></span>
-  Get a free audit →
+  WhatsApp us →
 </a>
 
 <script>
@@ -1483,6 +1683,24 @@
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ===== Testimonial dots sync =====
+  const testimonialsEl = document.getElementById('testimonials');
+  const dots = document.querySelectorAll('#testimonialDots .dot-pip');
+  if (testimonialsEl && dots.length) {
+    let dotTicking = false;
+    function updateDots() {
+      const cards = testimonialsEl.querySelectorAll('.testimonial');
+      const scrollLeft = testimonialsEl.scrollLeft;
+      const cardWidth = cards[0].offsetWidth + 16; // gap
+      const index = Math.round(scrollLeft / cardWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === Math.min(index, dots.length - 1)));
+      dotTicking = false;
+    }
+    testimonialsEl.addEventListener('scroll', () => {
+      if (!dotTicking) { requestAnimationFrame(updateDots); dotTicking = true; }
+    }, { passive: true });
+  }
 </script>
 
 </body>
